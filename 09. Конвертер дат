@@ -1,0 +1,29 @@
+
+*/  Ввести с клавиатуры дату в формате «08/18/2013»
+    Вывести на экран эту дату в виде «AUG 18, 2013».
+    Воспользоваться объектом Date и SimpleDateFormat. */
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws ParseException {
+        Scanner keyboard = new Scanner(System.in);
+        String date = keyboard.nextLine();
+
+        DateFormat format = new SimpleDateFormat("MM/DD/YY");
+        Date parseDate = format.parse(date);
+
+        String[] str = parseDate.toString().split(" ");
+        System.out.println(str[1].toUpperCase() + " " + str[2] +
+                ", " + str[5]);
+
+        
+
+    }
+}
