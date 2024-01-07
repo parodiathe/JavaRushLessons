@@ -1,0 +1,34 @@
+/* Вводить с клавиатуры числа. Код по чтению чисел с клавиатуры вынести в отдельный метод readData.
+Обернуть все тело (весь код внутри readData, кроме объявления списка, где будут храниться числа и BufferedReader - а) этого метода в try..catch.
+Если пользователь ввёл какой-то текст, вместо ввода числа, то метод должен перехватить исключение и вывести на экран все введенные числа в качестве результата.
+Числа выводить с новой строки сохраняя порядок ввода. */
+
+import java.io.CharConversionException;
+import java.io.IOException;
+import java.nio.file.FileSystemException;
+import java.rmi.RemoteException;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        readData();
+    }
+
+    public static void readData() {
+        LinkedList<Integer> list = new LinkedList<Integer>();
+
+        try {
+            Scanner keyboard = new Scanner(System.in);
+            while (keyboard.hasNext()) {
+                list.add(keyboard.nextInt());
+            }
+        }
+        catch(InputMismatchException e)
+        {
+            System.out.println("Вы ввели слово, а нужно лишь цифры!!!");
+        }
+        System.out.println(list);
+    }
+}
+
