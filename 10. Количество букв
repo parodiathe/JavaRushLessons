@@ -1,0 +1,46 @@
+*/ Ввести с клавиатуры 10 строчек и подсчитать в них количество различных букв (для 33 букв алфавита). Вывести результат на экран.
+
+Пример вывода:
+а 5
+б 8
+в 3
+г 7
+…
+я 9
+*/
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Создаем массив для подсчета количества букв
+        int[] letters = new int[33];
+
+        // Считываем 10 строк с клавиатуры
+        for (int i = 0; i < 10; i++) {
+            String stroka = scanner.nextLine();
+
+            // Приводим все символы строки к нижнему регистру
+            stroka = stroka.toLowerCase();
+
+            // Перебираем все символы строки и увеличиваем счетчик для соответствующей буквы
+            for (int j = 0; j < stroka.length(); j++) {
+                char currentChar = stroka.charAt(j);
+
+                // Игнорируем все символы, кроме букв русского алфавита
+                if (currentChar >= 'а' && currentChar <= 'я') {
+                    int index = currentChar - 'а';
+                    letters[index]++;
+                }
+            }
+        }
+
+        // Выводим результат на экран
+        for (int i = 0; i < letters.length; i++) {
+            char letter = (char) ('а' + i);
+            System.out.println(letter + " " + letters[i]);
+        }
+    }
+}
