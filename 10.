@@ -1,0 +1,41 @@
+*/ 9. Одинаковые слова в списке
+
+Ввести с клавиатуры в список 20 слов. Нужно подсчитать количество одинаковых слов в списке. Результат нужно представить в виде словаря Map<String, Integer>, где первый параметр – уникальная строка, а второй – число, сколько раз данная строка встречалась в списке. Вывести содержимое словаря на экран.
+
+В тестах регистр (большая/маленькая буква) не влияет на результат. */
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        ArrayList<String> words = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            words.add(keyboard.nextLine().toLowerCase());
+        }
+
+        Map<String, Integer> wordCount = new HashMap<String, Integer>();
+
+        for (String s : words) {
+            if (wordCount.containsKey(s)) {
+                wordCount.put(s, wordCount.get(s) + 1);
+            } else {
+                wordCount.put(s, 1);
+            }
+        }
+        for(Map.Entry<String, Integer> entry : wordCount.entrySet()){
+            System.out.println(entry.getKey() + "-" + entry.getValue());
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
