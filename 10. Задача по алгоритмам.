@@ -1,0 +1,34 @@
+*/
+3. Задача по алгоритмам.
+
+Задача: Ввести с клавиатуры 30 чисел. Вывести 10-е и 11-е минимальные числа.
+Пояснение:
+Самое минимальное число – 1-е минимальное.
+Следующее минимальное после него – 2-е минимальное
+
+Пример:
+1 6 5 7 1 15 63 88
+Первое минимальное – 1
+Второе минимальное – 1
+Третье минимальное – 5
+Четвертое минимальное – 6 
+/*
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < 30; i++) {
+            list.add(keyboard.nextInt());
+        }
+
+        List<Integer> sortedList = new ArrayList<>(list);
+        Collections.sort(sortedList);
+
+        System.out.println("Десятое минимальное число = " + sortedList.get(10));
+        System.out.println("Одиннадцатое минимальное число = " + sortedList.get(11));
+        }
+    }
