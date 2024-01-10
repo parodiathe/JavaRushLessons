@@ -1,0 +1,35 @@
+*/ 8. Массив списков строк
+
+Создать массив, элементами которого будут списки строк. Заполнить массив любыми данными и вывести их на экран.  /*
+
+import java.util.*;
+
+public class Main{
+
+    public static void main(String[] args) {
+
+        List<String>[] arrayOfList = new List[3];
+
+        arrayOfList[0] = new ArrayList<>();
+        arrayOfList[0].add("Здесь первый элемент первого списка");
+        arrayOfList[0].add("Здесь второй элемент первого списка");
+        arrayOfList[0].add("Здесь первый элемент первого списка");
+
+        arrayOfList[1] = new ArrayList<>();
+        arrayOfList[1].add("Здесь первый элемент второй списка");
+        arrayOfList[1].add("Здесь второй элемент второй списка");
+        arrayOfList[1].add("Здесь третьего элемент второй списка");
+
+        arrayOfList[2] = new ArrayList<>();
+        arrayOfList[2].add("Здесь первый элемент третьего списка");
+        arrayOfList[2].add("Здесь второй элемент третьего списка");
+        arrayOfList[2].add("Здесь третьего элемент третьего списка");
+
+        for(int i = 0; i < arrayOfList.length; i++){
+            System.out.println("Список" + (i +1) + ".");
+            for(String s : arrayOfList[i]){
+                System.out.println(i);
+            }
+        }
+    }
+}
